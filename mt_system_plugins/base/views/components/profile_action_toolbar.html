@@ -1,0 +1,17 @@
+<div class="mt_profile_gallery_action_toolbar mt_profile_action_toolbar_wrap clearfix mt_stdmargin">
+    <ul class="mt_bl mt_profile_action_toolbar clearfix mt_small mt_left">
+        {foreach from=$toolbar item='action'} {if isset($action.html)} {$action.html} {elseif isset($action.extraLabel)}
+        <li>
+            {$action.extraLabel}
+        </li>
+        {else}
+        <li>
+            <a {$action.attrs}>
+                        {$action.label}
+                    </a>
+        </li>
+        {/if} {/foreach}
+    </ul>
+
+    {foreach from=$groups item="group"} {$group} {/foreach} {$cmpsMarkup}
+</div>

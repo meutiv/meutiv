@@ -1,0 +1,40 @@
+ {block_decorator name="box" type="empty"} {form name=$form->getName()}
+<table class="account_type_label mt_table_1 mt_form mt_smallmargin">
+    <tr class="mt_center mt_tr_first">
+        <th>{text key="admin+language"}</th>
+        <th>{text key="admin+account_type_translation" }</th>
+    </tr>
+    {foreach from=$langs item='lang' name='lang'}
+    <tr class="{cycle values=" mt_alt1,mt_alt2 "} {if $smarty.foreach.lang.last}mt_tr_last{/if}">
+        <td class="mt_label">{$lang->getLabel()} ({$lang->getTag()})</td>
+        <td class="mt_value">{input name="lang[`$lang->id`][`$prefix`][`$key`]"}</td>
+    </tr>
+    {/foreach}
+</table>
+
+<table class="mt_table_1 mt_form mt_smallmargin">
+    <tbody>
+        <tr class="mt_alt1 mt_tr_first {if !$form->getElement('order')}mt_tr_last{/if}">
+            <td class="mt_label">{text key="admin+default_role"}</td>
+            <td class="mt_value">
+                {input name="role"}
+            </td>
+        </tr>
+        {if $form->getElement('order')}
+        <tr class="mt_alt1 mt_tr_last">
+            <td class="mt_label">{text key="admin+account_type_sort_order"}</td>
+            <td class="mt_value">
+                {input name="order"}
+                <div>{error name="order"}</div>
+            </td>
+        </tr>
+        {/if}
+    </tbody>
+</table>
+
+<div class="clearfix mt_smallmargin">
+    <div class="mt_right">
+        {submit name="submit"}
+    </div>
+</div>
+{/form} {/block_decorator}

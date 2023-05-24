@@ -1,0 +1,71 @@
+{form name='input_settings'}
+<table class="mt_table_1 mt_form">
+    <tr class="mt_tr_first">
+        <th class="mt_name mt_txtleft" colspan="3">
+            <span class="mt_section_icon mt_ic_file">{text key='admin+user_input_settings_user_content'}</span>
+        </th>
+    </tr>
+    <tr class="{cycle name=" user_input " values="mt_alt1,mt_alt2 "}">
+        <td class="mt_label" style="width: 30%;">{label name='user_custom_html'}</td>
+        <td class="mt_value">{input name='user_custom_html'} {error name='user_custom_html'}</td>
+        <td class="mt_desc">{desc name='user_custom_html'}</td>
+    </tr>
+    <tr class="{cycle name=" user_input " values="mt_alt1,mt_alt2 "} mt_tr_last">
+        <td class="mt_label">{label name='user_rich_media'}</td>
+        <td class="mt_value">{input name='user_rich_media'} {error name='user_rich_media'}</td>
+        <td class="mt_desc">{desc name='user_rich_media'}</td>
+    </tr>
+    <tr class="mt_tr_delimiter">
+        <td></td>
+    </tr>
+    <tr class="mt_tr_first">
+        <th class="mt_name mt_txtleft" colspan="3">
+            <span class="mt_section_icon mt_ic_comment">{text key='admin+user_input_settings_comments'}</span>
+        </th>
+    </tr>
+    <tr class="{cycle name=" comments " values="mt_alt1,mt_alt2 "} mt_tr_last">
+        <td class="mt_label">{label name='comments_rich_media'}</td>
+        <td class="mt_value">{input name='comments_rich_media'} {error name='comments_rich_media'}</td>
+        <td class="mt_desc">{desc name='comments_rich_media'}</td>
+    </tr>
+    <tr class="mt_tr_delimiter">
+        <td></td>
+    </tr>
+    <tr class="mt_tr_first">
+        <th class="mt_name mt_txtleft" colspan="3">
+            <span class="mt_section_icon mt_ic_picture">{text key='admin+user_input_settings_rich_media'}</span>
+        </th>
+    </tr>
+    <tr class="{cycle name=" rm " values="mt_alt1,mt_alt2 "}">
+        <td class="mt_label">{label name='max_upload_size'}</td>
+        <td class="mt_value">{input name='max_upload_size' style="width:30px;"} MB <span class="mt_small">{text key='base+max_upload_filesize' value=$maxUploadMaxFilesize}</span><br />{error name='max_upload_size'}</td>
+        <td class="mt_desc"></td>
+    </tr>
+    <tr class=" mt_tr_last {cycle name=" rm " values="mt_alt1,mt_alt2 "}">
+        <td class="mt_label">{label name='resource_list'}</td>
+        <td class="mt_value">{input name='resource_list'} {error name='resource_list'}</td>
+        <td class="mt_desc">{desc name='resource_list'}</td>
+    </tr>
+    <tr class="mt_tr_delimiter">
+        <td></td>
+    </tr>
+    <tr class="mt_tr_first">
+        <th class="mt_name mt_txtleft" colspan="3">
+            <span class="mt_section_icon mt_ic_picture">{text key='admin+user_input_settings_attachments'}</span>
+        </th>
+    </tr>
+    <tr class="{cycle name=" rm " values="mt_alt1,mt_alt2 "}">
+        <td class="mt_label">{label name='attch_max_upload_size'}</td>
+        <td class="mt_value">{input name='attch_max_upload_size' style="width:30px;"} MB <span class="mt_small">{text key='base+max_upload_filesize' value=$maxUploadMaxFilesize}</span><br />{error name='attch_max_upload_size'}</td>
+        <td class="mt_desc"></td>
+    </tr>
+    <tr class=" mt_tr_last {cycle name=" rm " values="mt_alt1,mt_alt2 "}">
+        <td class="mt_label">{label name='attch_ext_list'}</td>
+        <td class="mt_value">{input name='attch_ext_list'} {error name='attch_ext_list'}</td>
+        <td class="mt_desc">{desc name='attch_ext_list'}</td>
+    </tr>
+</table>
+<div class="clearfix mt_stdmargin">
+    <div class="mt_right">{submit name='save' class='mt_ic_save mt_positive'}</div>
+</div>
+{/form}

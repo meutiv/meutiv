@@ -1,0 +1,11 @@
+<div class="mt_console_list_wrapper MT_ConsoleListContainer">
+    <div class="mt_nocontent MT_ConsoleListNoContent">{text key='base+no_items'}</div>
+    <ul class="mt_console_list MT_ConsoleList">
+
+    </ul>
+    <div class="mt_preloader_content mt_console_list_preloader MT_ConsoleListPreloader" style="visibility: hidden"></div>
+</div>
+
+{if !empty($viewAll)}
+<div class="mt_console_view_all_btn_wrap"><a href="{$viewAll.url}" class="mt_console_view_all_btn">{$viewAll.label}</a></div>
+{/if}

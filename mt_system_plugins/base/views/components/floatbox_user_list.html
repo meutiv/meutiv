@@ -1,0 +1,17 @@
+{style}{literal} div.mt_floatbox_user_list .mt_floatbox_user_list_row .mt_item_set3 { width: 31%; } .mt_floatbox_user_list_scroll { height: 400px; overflow-y: auto; } {/literal}{/style} {if !empty($list)}
+<div class="mt_user_list mt_floatbox_user_list mt_full{if $scroll} mt_floatbox_user_list_scroll {/if}">
+    {foreach from=$list item=id name='user_list'} {if $smarty.foreach.user_list.first}
+    <div class="clearfix mt_floatbox_user_list_row {cycle name=" rows " values="mt_alt2, mt_alt1 "}">
+        {/if} {capture assign="_fields"} {if !empty($fields)} {foreach from=$fields[$id] item="field"} {$field.label}{$field.value}
+        <br /> {/foreach} {/if} {/capture} {assign var="username" value=$usernameList[$id]} {assign var="name" value=$displayNameList[$id]} {capture assign='userUrl'} {url_for_route for="base_user_profile:[username=>$username]"} {/capture} {decorator
+        name="user_list_item" avatar=$avatarList[$id] userUrl= $userUrl username=$username displayName=$name fields=$_fields activity='' set_class='mt_item_set3'} {if $smarty.foreach.user_list.iteration % 3 == 0 && !$smarty.foreach.user_list.last}
+    </div>
+    <div class="clearfix mt_floatbox_user_list_row {cycle name=" rows " values="mt_alt1,mt_alt2 "}">
+        {/if} {if $smarty.foreach.user_list.last}
+    </div>
+    {/if} {/foreach}
+
+</div>
+{else}
+<center>{text key="base+user_no_users"}</center>
+{/if}

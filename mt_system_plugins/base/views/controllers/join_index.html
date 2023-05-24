@@ -1,0 +1,123 @@
+ {block_decorator name="box" type="empty" addClass="mt_superwide mt_automargin"} {if isset($notValidInviteCode)} {block_decorator name="box" type="empty" addClass="mt_center" style="padding:15px;"} {text key="base+join_not_valid_invite_code"} {/block_decorator}
+{else} {if $step == 1} {block_decorator name="box" type="empty" addClass="mt_center" style="padding:15px;"} {text key="base+join_promo"} {/block_decorator} {component class='BASE_CMP_SignInButtonList'} {/if} {block_decorator name='box' type='empty' iconClass='mt_ic_user'
+langLabel='base+join_form_title'}{/block_decorator} {form name=joinForm}
+<table class="mt_table_1 mt_form">
+    {if $displayAccountType==true} {cycle assign='alt' values='mt_alt1,mt_alt2'}
+    <tr class=" mt_tr_first mt_tr_last">
+        <td class="{$alt} mt_label">
+            {label name='accountType'}
+        </td>
+        <td class="{$alt} mt_value mt_center">
+            {input name='accountType'}
+            <div style="height:1px;"></div>
+            {error name='accountType'}
+        </td>
+        <td class="{$alt} mt_desc">
+            {question_description_lang name="accountType"}
+        </td>
+    </tr>
+    <tr class="mt_tr_delimiter">
+        <td></td>
+    </tr>
+    {/if} {foreach from=$questionArray key='section' item='questions' name='section'} {if !empty($section) }
+    <tr class="mt_tr_first">
+        <th colspan="3">{text key="base+questions_section_`$section`_label"}</th>
+    </tr>{/if} {foreach from=$questions item='question' name='question'}
+    <tr class=" {if empty($section)}mt_tr_first{/if} {if $smarty.foreach.question.last && $question.name!='password'}mt_tr_last{/if}">
+        <td class="{if !empty($question.trClass)}{$question.trClass}{/if} mt_label">
+            {label name=$question.name}
+        </td>
+        <td class="{if !empty($question.trClass)}{$question.trClass}{/if} mt_value">
+            {input name=$question.name}
+            <div style="height:1px;"></div>
+            {error name=$question.name}
+        </td>
+        <td class="{if !empty($question.trClass)}{$question.trClass}{/if} mt_desc">
+            {question_description_lang name=$question.realName}
+        </td>
+    </tr>
+    {if $question.name=='password'}
+    <tr class="{if $smarty.foreach.question.last}mt_tr_last{/if}">
+        <td class="{if !empty($question.trClass) && $question.trClass == 'mt_alt1'}mt_alt2{else}mt_alt1{/if} mt_label">
+            {label name='repeatPassword'}
+        </td>
+        <td class="{if !empty($question.trClass) && $question.trClass == 'mt_alt1'}mt_alt2{else}mt_alt1{/if} mt_value">
+            {input name='repeatPassword'}
+            <div style="height:1px;"></div>
+            {error name='repeatPassword'}
+        </td>
+        <td class="{if !empty($question.trClass) && $question.trClass == 'mt_alt1'}mt_alt2{else}mt_alt1{/if} mt_desc">
+            {question_description_lang name='repeatPassword'}
+        </td>
+    </tr>
+    {/if} {/foreach} {if !empty($section)}
+    <tr class="mt_tr_delimiter">
+        <td></td>
+    </tr>{/if} {/foreach} {if $isLastStep} {if $display_photo}
+    <tr class="mt_tr_first">
+        <th colspan="3">{text key="base+questions_section_user_photo_label"}</th>
+    </tr>
+    {cycle assign='alt' name=userPhoto values='mt_alt1,mt_alt2'}
+    <tr class=" mt_tr_last">
+        <td class="{$alt} mt_label">
+            {label name='userPhoto'}
+        </td>
+        <td class="{$alt} mt_value">
+            {input name='userPhoto'}
+            <div style="height:1px;"></div>
+            {error name='userPhoto'}
+        </td>
+        <td class="{$alt} mt_desc">
+            {question_description_lang name='user_photo'}
+        </td>
+    </tr>
+    <tr class="mt_tr_delimiter">
+        <td></td>
+    </tr>
+    {/if} {if $display_terms_of_use}
+    <tr class="mt_tr_first">
+        <th colspan="3">{text key="base+questions_section_terms_of_use_label"}</th>
+    </tr>
+    {cycle assign='alt' name=userPhoto values='mt_alt1,mt_alt2'}
+    <tr class=" mt_tr_last">
+        <td class="{$alt} mt_label">
+            {label name='termOfUse'}
+        </td>
+        <td class="{$alt} mt_value">
+            {input name='termOfUse'}
+            <div style="height:1px;"></div>
+            {error name='termOfUse'}
+        </td>
+        <td class="{$alt} mt_desc">
+
+        </td>
+    </tr>
+    <tr class="mt_tr_delimiter">
+        <td></td>
+    </tr>
+    {/if} {if $display_captcha}
+    <tr class="mt_tr_first">
+        <th colspan="3">{text key="base+questions_section_captcha_label"}</th>
+    </tr>
+    {cycle assign='alt' name=captchaField values='mt_alt1,mt_alt2'}
+    <tr class="mt_tr_last">
+        <td colspan="3" class="{$alt} mt_center">
+            <div style='padding:10px;'>
+                {input name='captchaField'}
+                <div style="height:1px;"></div>
+                {error name='captchaField'}
+            </div>
+        </td>
+    </tr>
+    {/if}
+    <tr class="mt_tr_delimiter">
+        <td></td>
+    </tr>
+    {/if}
+</table>
+<div class="clearfix">
+    <div class="mt_right">
+        {submit name='joinSubmit'}
+    </div>
+</div>
+{/form} {/if} {/block_decorator}

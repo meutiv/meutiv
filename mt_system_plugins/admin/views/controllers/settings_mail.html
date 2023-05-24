@@ -1,0 +1,58 @@
+{form name='mailSettingsForm'}
+
+<table class="mt_table_1 mt_form">
+    <!-- Smtp Settings -->
+
+    {*
+    <tr>
+        <th class="mt_name mt_txtleft" colspan="3">
+            <span class="mt_section_icon mt_ic_clock">{text key='admin+mail_smtp_settings'}</span>
+        </th>
+    </tr>*}
+    <tr class="{cycle name=" install " values="mt_alt2, mt_alt1 "} mt_tr_first">
+        <td class="mt_label">{text key='admin+mail_smtp_title_enabled'}</td>
+        <td class="mt_value">{input name='mailSmtpEnabled'} {error name='mailSmtpEnabled'}</td>
+        <td class="mt_desc">{text key='admin+mail_smtp_title_enabled_desc'}</td>
+    </tr>
+    <tr class="{cycle name=" install " values="mt_alt2, mt_alt1 "}">
+        <td class="mt_label">{text key='admin+mail_smtp_title_host'}</td>
+        <td class="mt_value">{input name='mailSmtpHost' style="width: 172px"}:{input name='mailSmtpPort' maxlength=5 style="width: 60px"}{error name='mailSmtpHost'}</td>
+        <td class="mt_desc"></td>
+    </tr>
+    <tr class="{cycle name=" install " values="mt_alt2, mt_alt1 "}">
+        <td class="mt_label">{text key='admin+mail_smtp_title_user'}</td>
+        <td class="mt_value">{input name='mailSmtpUser'} {error name='mailSmtpUser'}</td>
+        <td class="mt_desc mt_small"></td>
+    </tr>
+    <tr class="{cycle name=" install " values="mt_alt2, mt_alt1 "}">
+        <td class="mt_label">{text key='admin+mail_smtp_title_password'}</td>
+        <td class="mt_value">{input name='mailSmtpPassword'} {error name='mailSmtpPassword'}</td>
+        <td class="mt_desc mt_small"></td>
+    </tr>
+    {*
+    <tr class="{cycle name=" install " values="mt_alt2, mt_alt1 "}">
+        <td class="mt_label">{text key='admin+mail_smtp_title_port'}</td>
+        <td class="mt_value">{input name='mailSmtpPort'} {error name='mailSmtpPort'}</td>
+        <td class="mt_desc mt_small"></td>
+    </tr>*}
+    <tr class="{cycle name=" install " values="mt_alt2, mt_alt1 "} mt_tr_las">
+        <td class="mt_label">{text key='admin+mail_smtp_connection_prefix'}</td>
+        <td class="mt_value">{input name='mailSmtpConnectionPrefix'} {error name='mailSmtpConnectionPrefix'}</td>
+        <td class="mt_desc mt_small">{text key='admin+mail_smtp_connection_prefix_desc'}</td>
+    </tr>
+
+    <!-- / Smtp Settings -->
+
+</table>
+<div class="clearfix mt_stdmargin">
+    <div class="mt_right">
+        {submit name='save' class='mt_ic_save'}
+    </div>
+</div>
+{/form} {if $smtpEnabled} {block_decorator name="box" iconClass="mt_ic_mail" langLabel='admin+mail_smtp_test_connection_title'} {text key="admin+mail_smtp_connection_desc"}
+<div class="clearfix" style="padding: 5px;">
+    <div class="mt_right">
+        {decorator name="button" id="smtp_test_connection" langLabel="admin+mail_smtp_test_connection_btn"}
+    </div>
+</div>
+{/block_decorator} {/if}

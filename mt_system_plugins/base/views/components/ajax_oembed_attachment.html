@@ -1,0 +1,104 @@
+{style}{literal} .mt_oembed_attachment { position: relative; padding-right: 20px; margin-bottom: 4px; } .mt_oembed_attachment .two_column .attachment_left { float: left; max-width: 150px; margin-right: 8px; } .mt_oembed_attachment .two_column .attachment_right
+{ display: inline-block; } .mt_oembed_attachment .video div.attachment_left { position: relative; } .mt_oembed_attachment .video div.attachment_right { display: inline-block; } .mt_oembed_attachment .one_column .attachment_left { display: none; } .mt_oembed_attachment
+.attachment_left img { width: 100%; height: auto; max-width: none; } .mt_oembed_attachment .attachment_left embed, .mt_oembed_attachment .attachment_left object, .mt_oembed_attachment .attachment_left iframe { width: 300px; height: 220px; } .mt_oembed_attachment:hover
+.attachment_delete { display: block; } .attachment_delete { position: absolute; right: 0; width:12px; height:12px; display: none; } .mt_oembed_attachment .link.two_column, .mt_oembed_attachment .video.two_column { padding-left: 108px; } .mt_oembed_attachment
+.video.two_column.mt_video_playing { padding-left: 0; } .mt_oembed_attachment .link.two_column .attachment_left, .mt_oembed_attachment .video.two_column .attachment_left { max-width: 100px; margin-left: -108px; margin-top: 4px; } .mt_oembed_attachment
+.video.two_column.mt_video_playing .attachment_left { margin: 0 0 4px 0; width: 100%; max-width: none; } .mt_oembed_attachment .link .mt_oembed_video_cover { display: none; } {/literal}{/style} {*
+<div class="mt_ajax_oembed_attachment mt_oembed_attachment mt_border clearfix {if !empty($containerClass)}{$containerClass}{/if}" id="{$uniqId}">
+
+    <a class="attachment_delete MT_AttachmentDelete mt_miniic_delete {if !empty($deleteClass)}{$deleteClass}{/if}" href="javascript://"></a>
+
+    <div style="padding-right: 20px;">
+        <div class="{$data.type} {if !empty($data.thumbnail_url) || !empty($data.url)}has_thumbnail{elseif !empty($data.html)}has_html{/if} {if !empty($data.title) || !empty($data.description) }two_column{elseif $data.type !='photo'}one_column{/if}">
+            <div class="attachment_left">
+                {if !empty($data.thumbnail_url) }
+                <a href="{$data.href}" target="_blank">
+                    <img src="{$data.thumbnail_url}" class="attachment_thumb MT_AttachmentImage" />
+                </a>
+                {elseif !empty($data.url)}
+                <a href="javascript://" onclick="MT.showImageInFloatBox('{$data.href}');">
+                    <img src="{$data.url}" class="attachment_thumb from_fullsize_photo MT_AttachmentImage" />
+                </a>
+                {elseif !empty($data.html)} {$data.html} {/if} {if !empty($data.allImages) && count($data.allImages) > 1}
+                <div class="attachment_other_images">
+                    <a href="javascript://" class="attachment_other_images_btn MT_AttachmentSelectPicture mt_lbutton">{text key="base+ajax_attachment_select_image"}</a>
+                    <div style="display: none">
+                        <div class="attachment_other_images_fbtitle MT_AttachmentPicturesFbTitle">{text key="base+ajax_attachment_select_image_title"}</div>
+                        <div class="attachment_other_images_fbcontent clearfix MT_AttachmentPicturesFbContent">
+                            {foreach from=$data.allImages item="img"}
+                            <div class="attachment_image_item mt_border MT_AttachmentPictureItem">
+                                <img src="{$img}" />
+                            </div>
+                            {/foreach}
+                        </div>
+                    </div>
+                </div>
+                {/if}
+
+            </div>
+            <div class="attachment_right ">
+                {if !empty($data.title)}
+                <div class="attachment_title"><a href="{$data.href}" target="_blank">{$data.title}</a></div>
+                {elseif $data.type != "photo"}
+                <div class="attachment_title"><a href="{$data.href}" target="_blank">{$data.href}</a></div>
+                {/if} {if !empty($data.description)}
+                <div class="attachment_desc mt_remark">{$data.description}</div>
+                {/if}
+            </div>
+        </div>
+    </div>
+</div>
+
+*} {if $data.type == "photo"}
+<div class="mt_comment_attachment mt_photo_attachment_preview mt_smallmargin" id="{$uniqId}">
+    {if !empty($data.thumbnail_url) }
+    <a href="{$data.href}" target="_blank" class="mt_photo_attachment_pic mt_attachment_preload" style="background-image: url({$data.thumbnail_url});">
+        <div class="mt_attachment_delete mt_miniic_delete MT_AttachmentDelete"></div>
+    </a>
+    {elseif !empty($data.url)}
+    <a href="javascript://" class="mt_photo_attachment_pic mt_attachment_preload" onclick="MT.showImageInFloatBox('{$data.href}');" style="background-image: url({$data.url});">
+        <div class="mt_attachment_delete mt_miniic_delete MT_AttachmentDelete"></div>
+    </a>
+    {/if}
+</div>
+{else}
+<div class="mt_comment_attachment mt_oembed_attachment_preview mt_smallmargin" id="{$uniqId}">
+    {if !empty($data.thumbnail_url) || !empty($data.url)}
+    <div class="mt_oembed_attachment_pic">
+
+        {if !empty($data.thumbnail_url) }
+        <a href="{$data.href}" target="_blank">
+            <img src="{$data.thumbnail_url}" class="attachment_thumb MT_AttachmentImage" />
+        </a>
+        {elseif !empty($data.url)}
+        <a href="javascript://" onclick="MT.showImageInFloatBox('{$data.href}');">
+            <img src="{$data.url}" class="attachment_thumb from_fullsize_photo MT_AttachmentImage" />
+        </a>
+        {/if} {if !empty($data.allImages) && count($data.allImages) > 1}
+        <a href="javascript://" class="attachment_other_images_btn mt_lbutton MT_AttachmentSelectPicture">{text key="base+ajax_attachment_select_image"}</a>
+
+        <div style="display: none">
+            <div class="attachment_other_images_fbtitle MT_AttachmentPicturesFbTitle">{text key="base+ajax_attachment_select_image_title"}</div>
+            <div class="attachment_other_images_fbcontent clearfix MT_AttachmentPicturesFbContent">
+                {foreach from=$data.allImages item="img"}
+                <div class="attachment_image_item mt_border MT_AttachmentPictureItem">
+                    <img src="{$img}" />
+                </div>
+                {/foreach}
+            </div>
+        </div>
+        {/if}
+    </div>
+    {/if}
+
+    <div class="mt_attachment_title">
+        {if !empty($data.title)}
+        <a href="{$data.href}" target="_blank">{$data.title}</a> {/if}
+        <a class="mt_attachment_delete mt_miniic_delete MT_AttachmentDelete" href="javascript://"></a>
+    </div>
+
+    {if !empty($data.description)}
+    <div class="mt_attachment_description mt_remark">{$data.description}</div>
+    {/if}
+</div>
+{/if}

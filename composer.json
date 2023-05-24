@@ -1,0 +1,17 @@
+{
+    "name": "meutiv/meutiv",
+    "type": "project",
+    "authors": [{
+        "name": "Peatech LLC"
+    }],
+    "config": {
+        "vendor-dir": "mt_libraries/vendor"
+    },
+    "require": {
+        "php": ">=7.2",
+        "smarty/smarty": "^4.3",
+        "guzzlehttp/guzzle": "^7.5",
+        "phpmailer/phpmailer": "^6.7",
+        "symfony/console": "^5.4"
+    }
+}

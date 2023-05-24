@@ -1,0 +1,20 @@
+<div class="mt_ulist_big_item">
+    <div class="mt_ulist_big_item_cont">
+        <div style="background-image: url('{$data.avatar}');" class="mt_ulist_big_avatar">
+            {if !empty($data.isMarked)}
+            <div class="mt_ic_bookmark mt_bookmark_icon"></div>
+            {/if} {if !empty($data.online)}
+            <div class="mt_miniic_live"><span class="mt_live_on"></span></div>
+            {/if}
+
+            <a href="{url_for_route for=" base_user_profile:[username=>`$data.username`]"}" class="mt_ulist_big_avatar_shadow"></a> {if !empty($data.avatarAction)}
+            <a {if !empty($data.avatarAction.userId)}data-user-id="{$data.avatarAction.userId}" {/if}class="mt_ulist_big_avatar_bookmark" href="{$data.avatarAction.href}">{$data.avatarAction.label}</a> {/if}
+        </div>
+        <div class="mt_ulist_big_info">
+            <div class="clearfix">
+                <a class="mt_ulist_big_info_name mt_small" href="{url_for_route for=" base_user_profile:[username=>`$data.username`]"}">{$data.displayName}</a>
+            </div>
+            {$data.fields} {if !empty($data.activity)} {$data.activity} {/if}
+        </div>
+    </div>
+</div>

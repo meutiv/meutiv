@@ -1,0 +1,22 @@
+{* `IC` decorator template *} {style} {literal} .mt_ic_toolbar span{ display:inline-block; } {/literal} {/style} {if $data.first}
+<ul class="mt_regular mt_ic">
+    {/if}
+
+    <li>
+        <div class="mt_ic_header"><a {if !empty($data.titleHrefBlank)}target="_blank" {/if} href="{$data.titleHref}">{$data.title}</a></div>
+
+        <div class="mt_ic_description">{$data.info}</div>
+
+        {if !empty($data.toolbar)}
+        <div class="mt_ic_toolbar mt_small mt_remark clearfix">
+            {foreach from=$data.toolbar item='item' name='toolbar'} {if !$smarty.foreach.toolbar.first && ( empty($item.class) || $item.class != 'mt_ipc_date' )} <span class="mt_delimiter">&middot;</span> {/if}
+            <span class="mt_nowrap{if !empty($item.class)} {$item.class}{/if}">
+                {if !empty($item.href)}<a {if !empty($item.id)} id="{$item.id}"{/if} href="{$item.href}">{/if}{$item.label}{if !empty($item.href)}</a>{/if}
+  		    </span> {/foreach}
+        </div>
+        {/if}
+    </li>
+
+    {if $data.last}
+</ul>
+{/if}

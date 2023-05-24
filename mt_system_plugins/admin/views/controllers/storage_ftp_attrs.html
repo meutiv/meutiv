@@ -1,0 +1,26 @@
+{style} {literal} .mt_active_plugins tr, .mt_inactive_plugins tr{ border-top:1px solid #ccc; } .mt_plugin_controls{ display:none; } {/literal} {/style}
+<div class="mt_narrow mt_automargin">
+    {block_decorator name='box' type='empty' addClass='mt_stdmargin' iconClass='mt_ic_trash' langLabel='admin+manage_plugins_ftp_box_cap_label'} {form name='ftp'}
+    <table class="mt_form mt_smallmargin">
+        <tr>
+            <td class="mt_label">{label name='host'}</td>
+            <td class="mt_input">{input name='host'}</td>
+        </tr>
+        <tr>
+            <td class="mt_label">{label name='login'}</td>
+            <td class="mt_input">{input name='login'}</td>
+        </tr>
+        <tr>
+            <td class="mt_label">{label name='password'}</td>
+            <td class="mt_input">{input name='password'}</td>
+        </tr>
+        <tr>
+            <td class="mt_label">{label name='port'}</td>
+            <td class="mt_input">{input name='port'}</td>
+        </tr>
+    </table>
+    <div class="clearfix">
+        <div class="mt_right">{submit name='submit' class='mt_positive'}</div>
+    </div>
+    {/form} {/block_decorator}
+</div>

@@ -1,0 +1,52 @@
+<div class="mt_stdmargin">
+    {form name='maintenance'}
+    <table class="mt_table_1 mt_form">
+        <tr class="mt_tr_first">
+            <th class="mt_name mt_txtleft" colspan="3">
+                <span class="mt_section_icon mt_ic_gear_wheel">{text key="admin+maintenance_section_label"}</span>
+            </th>
+        </tr>
+        <tr class="{cycle values='mt_alt2,mt_alt1'}">
+            <td class="mt_label">{label name='maintenance_enable'}</td>
+            <td class="mt_value">{input name='maintenance_enable'}</td>
+            <td class="mt_desc">{desc name='maintenance_enable'}</td>
+        </tr>
+        <tr class="{cycle values='mt_alt2,mt_alt1'} mt_tr_last">
+            <td class="mt_label">{label name='maintenance_text'}</td>
+            <td class="mt_value">{input name='maintenance_text'}</td>
+            <td class="mt_desc">{desc name='maintenance_text'}</td>
+        </tr>
+    </table>
+
+    <table class="mt_table_1 mt_form">
+        <tr class="mt_tr_first">
+            <th class="mt_name mt_txtleft" colspan="3">
+                <span class="mt_section_icon mt_ic_gear_wheel">{text key="admin+splash_screen_section_label"}</span>
+            </th>
+        </tr>
+        <tr class="{cycle values='mt_alt2,mt_alt1'}">
+            <td class="mt_label">{label name='splash_screen'}</td>
+            <td class="mt_value">{input name='splash_screen'}</td>
+            <td class="mt_desc">{desc name='splash_screen'}</td>
+        </tr>
+        <tr class="{cycle values='mt_alt2,mt_alt1'}">
+            <td class="mt_label">{label name='intro'}</td>
+            <td class="mt_value">{input name='intro'}</td>
+            <td class="mt_desc">{desc name='intro'}</td>
+        </tr>
+        <tr class="{cycle values='mt_alt2,mt_alt1'}">
+            <td class="mt_label">{label name='button_label'}</td>
+            <td class="mt_value">{input name='button_label'}</td>
+            <td class="mt_desc">{desc name='button_label'}</td>
+        </tr>
+        <tr class="{cycle values='mt_alt2,mt_alt1'} mt_tr_last">
+            <td class="mt_label">{label name='leave_url'}</td>
+            <td class="mt_value">{input name='leave_url'}</td>
+            <td class="mt_desc mt_small">{desc name='leave_url'}</td>
+        </tr>
+    </table>
+    <div class="clearfix">
+        <div class="mt_right">{submit name='save' class='mt_button mt_ic_save mt_positive'}</div>
+    </div>
+    {/form}
+</div>

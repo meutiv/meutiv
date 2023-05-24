@@ -1,0 +1,25 @@
+{$menu} {form name="image-upload"}
+<center>
+    <table class="mt_table_1 mt_form">
+        <tr class="{cycle values=" mt_alt1, mt_alt2 "} mt_tr_first">
+            <td class="mt_label">
+                {label name="file"}
+            </td>
+            <td class="mt_value">
+                {input name="file"}<br /> {error name="file"}
+            </td>
+        </tr>
+        <tr class="mt_tr_last">
+            <td colspan="2" align="center">
+                <p>
+                    {text key='base+tf_img_types'} <span class="mt_txt_value">JPG</span>/<span class="mt_txt_value">PNG</span>/<span class="mt_txt_value">GIF</span>. {text key='base+tf_img_max_size'} <span class="mt_txt_value">{$maxSize} Mb</span>.
+
+                </p>
+            </td>
+        </tr>
+    </table>
+    <div class="clearfix">
+        <div class="mt_right">{submit name="submit"}</div>
+    </div>
+</center>
+{/form}

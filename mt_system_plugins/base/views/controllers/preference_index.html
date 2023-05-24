@@ -1,0 +1,34 @@
+{style} {literal} tr.mt_preference td.mt_label{ width:30% } {/literal} {/style} {$contentMenu} {block_decorator name="box" type="empty" addClass="mt_superwide mt_automargin"} {if empty($preferenceList)} {block_decorator name="box" type="empty" addClass="mt_center"
+style="padding:15px;"} {text key="base+preference_no_items"} {/block_decorator} {else} {form name='preferenceForm'}
+<table class="mt_table_1 mt_form">
+    {foreach from=$preferenceList key='section' item='preferences'} {if !empty($section) }
+    <tr class="mt_name mt_txtleft mt_tr_first">
+        <th colspan="3">
+            {if !empty($sectionLabels.$section.label)}
+            <span class="mt_section_icon {if !empty($sectionLabels.$section.iconClass)} {$sectionLabels.$section.iconClass} {/if}">
+                                        {$sectionLabels.$section.label}
+                                    </span> {else} {$section} {/if}
+        </th>
+    </tr>
+    {/if} {foreach from=$preferences item='preference' name='preference'}
+    <tr class="mt_preference {cycle name=$section values='mt_alt1,mt_alt2'} {if $smarty.foreach.preference.last}mt_tr_last{/if}">
+        <td class="mt_label">
+            {label name=$preference}
+        </td>
+        <td class="mt_value">
+            {input name=$preference}
+            <div style="height:1px;"></div>
+            {error name=$preference}
+        </td>
+        <td class="mt_desc">
+            {desc name=$preference}
+        </td>
+    </tr>
+    {/foreach} {/foreach}
+</table>
+<div class="clearfix mt_stdmargin">
+    <div class="mt_right">
+        {submit name='preferenceSubmit'}
+    </div>
+</div>
+{/form} {/if} {/block_decorator}

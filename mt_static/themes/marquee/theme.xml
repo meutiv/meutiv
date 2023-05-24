@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<theme>
+    <name>Marquee</name>
+    <key>marquee</key>
+    <version>1.0</version>
+    <compatibility>1.7 and higher</compatibility>
+    <description>The original "Marquee theme" for Meutiv Dating Software</description>
+    <author>EWT Global Solutions</author>
+    <authorEmail>info@meutiv.com</authorEmail>
+    <authorUrl>http://meutiv.com</authorUrl>
+    <developerKey>c460d0c81c425294b1face09b03b15e3</developerKey>
+    <build>1814</build>
+    <copyright>(C) 2018 EWT Global Solutions. All rights reserved.</copyright>
+    <license>MEL</license>
+    <licenseUrl>http://www.meutiv.com/mel.pdf</licenseUrl>
+    <sidebarPosition>right</sidebarPosition>
+    <masterPages>
+       <base_index_page>index</base_index_page>
+    </masterPages>
+</theme>

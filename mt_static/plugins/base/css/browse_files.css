@@ -1,0 +1,546 @@
+.mt_photo_list_menu a:nth-of-type(1) {
+    border-top-left-radius: 2px;
+    -moz-border-top-left-radius: 2px;
+    -webkit-border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    -moz-border-bottom-left-radius: 2px;
+    -webkit-border-bottm-left-radius: 2px;
+}
+
+.mt_explore_photos_show {
+    display: inline-block;
+    font-size: 11px;
+    padding: 0 8px 0 0;
+}
+
+.mt_photo_list {
+    margin: -4px -4px 16px -4px;
+}
+
+.mt_photo_list_wrap div.mt_photo_item_wrap {
+    position: relative;
+    width: 25%;
+    float: left;
+    height: auto;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 4px;
+}
+
+.mt_photo_list_wrap.mt_photo_no_sidebar div.mt_photo_item_wrap {
+    width: 20%;
+}
+
+.mt_photo_list_wrap div.mt_photo_item {
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+}
+
+.mt_photo_item_wrap img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+}
+
+.mt_photo_list_wrap .mt_photo_item_wrap .mt_photo_item_info {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    height: auto;
+    padding: 8px 8px 8px 8px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    opacity: 0;
+}
+
+.mt_photo_list_wrap .mt_photo_pint_mode .mt_photo_item_wrap .mt_photo_item_info {
+    opacity: 1;
+}
+
+.mt_photo_item:hover .mt_photo_item_info {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    -moz-transition: opacity 0.5s ease;
+    -webkit-transition: opacity 0.5s ease;
+}
+
+.mt_photo_context_action:hover .mt_tooltip {
+    display: block;
+}
+
+.mt_photo_item_info_user {
+    margin-bottom: 2px;
+}
+
+.mt_photo_item_info_album {
+    margin-bottom: 1px;
+}
+
+.mt_photo_item_info .mt_rates_wrap span {
+    vertical-align: baseline;
+}
+
+.mt_photo_list_wrap div.mt_photo_item_wrap.mt_photo_album {
+    width: 33.3%;
+}
+
+.mt_photo_list_wrap.mt_photo_no_sidebar div.mt_photo_item_wrap.mt_photo_album {
+    width: 25%;
+}
+
+.mt_photo_list.mt_photo_pint_mode .mt_photo_item_wrap.mt_photo_album {
+    position: static;
+}
+
+.mt_photo_list_wrap .mt_photo_item_wrap.mt_photo_album .mt_photo_item_info {
+    opacity: 1;
+}
+
+.mt_photo_item_wrap.mt_photo_album .mt_photo_item_info_description {
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.mt_photo_pint_album {
+    background-position: center center;
+    background-size: cover;
+    border-radius: 0;
+    cursor: pointer;
+    width: 100%;
+}
+
+.mt_photo_pint_mode .mt_photo_item_wrap.mt_photo_album .mt_photo_item_info {
+    padding: 12px 14px 10px 14px;
+}
+
+.mt_photo_album_info_wrap {
+    padding-bottom: 32px;
+    margin-bottom: 18px;
+}
+
+.mt_photo_album_cover {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    float: left;
+    border-style: solid;
+    border-width: 1px;
+    margin-left: -138px;
+    background-position: center center;
+    background-size: cover;
+}
+
+.mt_photo_album_cover .mt_lbutton {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    margin: auto;
+}
+
+.mt_photo_album_info_wrap.mt_photo_album_edit {
+    margin-bottom: 12px;
+}
+
+.mt_photo_album_info_wrap .mt_photo_album_info {
+    width: 60%;
+    min-height: 28px;
+    margin-left: 138px;
+}
+
+body div.mt_photo_album_info_wrap .mt_fw_menu {
+    display: none;
+}
+
+body div.mt_photo_album_info_wrap.mt_photo_album_edit .mt_fw_menu {
+    display: block;
+}
+
+.mt_photo_album_info_wrap .mt_photo_album_name_input,
+.mt_photo_album_info_wrap .mt_photo_album_description_textarea,
+.mt_photo_album_info_wrap.mt_photo_album_edit .mt_photo_album_name,
+.mt_photo_album_info_wrap.mt_photo_album_edit .mt_photo_album_description {
+    display: none;
+}
+
+.mt_photo_album_info_wrap.mt_photo_album_edit .mt_photo_album_name_input,
+.mt_photo_album_info_wrap.mt_photo_album_edit .mt_photo_album_description_textarea,
+.mt_photo_album_info_wrap .mt_photo_album_name,
+.mt_photo_album_info_wrap .mt_photo_album_description {
+    display: block;
+}
+
+.mt_photo_album_info_wrap .mt_photo_album_btns,
+.mt_photo_album_info_wrap.mt_photo_album_edit .mt_photo_album_btns_edit {
+    display: block;
+}
+
+.mt_photo_album_info_wrap.mt_photo_album_edit .mt_photo_album_btns,
+div.mt_photo_album_info_wrap div.mt_photo_album_btns_edit {
+    display: none;
+}
+
+body .mt_photo_album_info_wrap .mt_photo_album_info .mt_photo_album_name_input,
+body .mt_photo_album_info_wrap .mt_photo_album_info .mt_photo_album_name {
+    font-size: 15px;
+    font-family: 'UbuntuBold', "Trebuchet MS", "Helvetica CY", sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+body .mt_photo_album_info_wrap .mt_photo_album_info .mt_photo_album_description_textarea,
+body .mt_photo_album_info_wrap .mt_photo_album_info .mt_photo_album_description {
+    line-height: 16px;
+    font-family: "Tahoma", "Lucida Grande", "Verdana";
+}
+
+.mt_photo_album_info_wrap .mt_photo_album_toolbar {
+    margin-top: 0;
+    width: 100%;
+    text-align: right;
+}
+
+.mt_fw_menu ul.mt_bl,
+.mt_fw_menu .mt_context_action_value_block {
+    margin-left: 4px;
+    padding-top: 1px;
+}
+
+.mt_fw_menu ul.mt_bl li {
+    margin-left: 0px;
+}
+
+.mt_fw_menu ul.mt_bl li {
+    margin-bottom: 0;
+}
+
+
+/*.mt_photo_list div:first-child {
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+}*/
+
+.mt_context_action_list a.mt_context_action_item_hierarchy_right {
+    position: relative;
+    padding-right: 21px;
+}
+
+.mt_context_action_list a.mt_context_action_item_hierarchy_left {
+    position: relative;
+    padding-left: 21px;
+}
+
+.mt_context_action_list a.mt_context_action_item_hierarchy_right span {
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    margin-top: -3px;
+    width: 5px;
+    height: 9px;
+}
+
+.mt_context_action_list a.mt_context_action_item_hierarchy_left span {
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    margin-top: -3px;
+    width: 5px;
+    height: 9px;
+}
+
+.mt_photo_edit_checkbox {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+
+.mt_photo_list.mt_photo_pint_mode {
+    position: relative;
+    margin: -8px -8px 16px -8px;
+}
+
+.mt_photo_list.mt_photo_pint_mode .mt_photo_item_wrap {
+    padding: 8px;
+    width: 25%;
+    position: absolute;
+}
+
+.mt_photo_list_wrap.mt_photo_no_sidebar .mt_photo_list.mt_photo_pint_mode div.mt_photo_item_wrap {
+    width: 25%;
+}
+
+.mt_photo_list.mt_photo_pint_mode .mt_photo_item {
+    border: none;
+    -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.33);
+    -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.33);
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.33);
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.mt_photo_pint_mode .mt_photo_item_wrap .mt_photo_item_info {
+    position: static;
+    display: block;
+    padding: 12px 16px 14px 16px;
+    border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
+}
+
+.mt_photo_item_info_description {
+    margin-bottom: 6px;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.mt_photo_list.mt_photo_pint_mode .mt_feed_btns_negative .mt_feed_btn_wrap,
+.mt_photo_list.mt_photo_pint_mode .mt_feed_btns_negative .mt_feed_btn_wrap:hover {
+    border: none;
+}
+
+.mt_photo_list.mt_photo_pint_mode.mt_photo_edit_mode .mt_photo_item img {
+    opacity: 0.6;
+}
+
+.mt_photo_list.mt_photo_edit_mode .mt_photo_item.mt_photo_item_checked img {
+    opacity: 1;
+}
+
+.mt_photo_list.mt_photo_edit_mode .mt_photo_item .mt_photo_context_action,
+.mt_photo_list.mt_photo_edit_mode .mt_photo_item .mt_photo_item_info {
+    display: none;
+}
+
+.mt_photo_pint_mode.mt_photo_list.mt_photo_edit_mode .mt_photo_item .mt_photo_item_info {
+    display: block;
+}
+
+.mt_photo_chekbox_area {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.mt_photo_edit_mode .mt_photo_chekbox_area .mt_photo_checkbox {
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    margin: 4px 0 0 4px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.mt_bl_disabled {
+    position: relative;
+}
+
+.mt_bl_disabled a {
+    opacity: 0.7;
+}
+
+.mt_bl_disabled .mt_tip {
+    display: none;
+}
+
+.mt_bl_disabled:hover .mt_tip {
+    display: block;
+}
+
+
+/* Explore Searchbar */
+
+.mt_searchbar {
+    display: inline-block;
+}
+
+.mt_searchbar_input {
+    position: relative;
+}
+
+.mt_searchbar input[type="text"] {
+    height: 24px;
+    font-size: 11px;
+    line-height: 14px;
+    width: 250px;
+    vertical-align: middle;
+}
+
+.mt_searchbar_input .mt_btn_close_search {
+    top: 2px;
+    right: 2px;
+    display: none;
+}
+
+.mt_searchbar_input.active input[type="text"] {
+    padding-right: 22px;
+}
+
+.mt_searchbar_input.active .mt_btn_close_search {
+    display: block;
+    cursor: pointer;
+}
+
+.mt_searchbar_btn {
+    width: 24px;
+    height: 24px;
+    background-position: right 5px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.mt_searchbar_ac_wrap {
+    position: relative;
+    width: 100%;
+}
+
+.mt_searchbar_ac {
+    position: absolute;
+    top: -1px;
+    left: 3px;
+    right: 3px;
+    z-index: 100;
+}
+
+.mt_searchbar_ac li {
+    min-height: 24px;
+    cursor: pointer;
+    display: block;
+    margin: 0;
+    overflow: hidden;
+    padding: 4px 32px 4px 5px;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.mt_searchbar_ac_count {
+    margin-right: -24px;
+    line-height: 20px;
+}
+
+.mt_search_result_tag {
+    display: inline-block;
+    width: 100%;
+}
+
+.mt_search_result_user {
+    padding-left: 40px;
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.mt_search_result_user .mt_avatar {
+    background: none;
+    padding: 0;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: -40px;
+}
+
+.mt_searchbar_username {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4px;
+    margin-top: -2px;
+}
+
+.mt_admin_date_filter,
+.mt_admin_bulk_options {
+    float: left;
+}
+
+.mt_admin_upload_button {
+    float: right;
+}
+
+.mt_admin_ajax_file_upload_form .floatbox_container {
+    width: 746px !important;
+}
+
+.mt_photo_preview_edit textarea {
+    height: 50px;
+}
+
+.mt_photo_chekbox_area .mt_photo_checkbox {
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    margin: 4px 0 0 4px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: rgba(87, 87, 87, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.mt_photo_item_checked .mt_photo_chekbox_area .mt_photo_checkbox {
+    background-image: url(images/checkbox_icon.png);
+}
+
+.mt_photoview_alt input {
+    margin-bottom: 10px;
+}
+
+.mt_photoview_url input {
+    width: 88%;
+}
+
+.mt_photoview_url a {
+    font-size: 130%;
+}
+
+.mt_photoview_url h5,
+.mt_photoview_title h5 {
+    margin-bottom: 4px;
+}
+
+.clipboard-button {
+    display: inline-block;
+    line-height: 32px;
+}
+
+.mt_photo_item_info_url .mt_disabled {
+    display: none;
+    margin-right: 3%;
+    width: 60%;
+}
+
+.mt_url_input_visible .mt_disabled {
+    display: inline-block;
+}

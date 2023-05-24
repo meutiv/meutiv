@@ -1,0 +1,17 @@
+{style}{literal} .mt_avatar_console .mt_avatar_label { bottom: 5px; right: 5px; -moz-border-radius: 3px; -webkit-border-radius: 3px; } {/literal}{/style} {if isset($profileActionToolbar)} {$profileActionToolbar} {/if}
+
+<div class="mt_left mt_supernarrow">
+    <div style="" class="mt_box_empty mt_stdmargin clearfix">
+        <div id="avatar-console" class="mt_avatar_console mt_center">
+            <div style="height: {$avatarSize}px; background: url({$avatar}) no-repeat center center; width: 100%">
+                {if isset($role.label)}<span class="mt_avatar_label" {if isset($role.custom)} style="background-color: {$role.custom}" {/if}>{$role.label}</span>{/if}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt_right mt_superwide">
+    <div class="mt_anno mt_center">
+        {if !empty($message)}{$message}{else}{text key='privacy+no_permission_message'}{/if}
+    </div>
+</div>
