@@ -8,10 +8,11 @@
         "vendor-dir": "mt_libraries/vendor"
     },
     "require": {
-        "php": ">=7.2",
+        "php": ">=7.4",
         "smarty/smarty": "^4.3",
         "guzzlehttp/guzzle": "^7.5",
         "phpmailer/phpmailer": "^6.7",
-        "symfony/console": "^5.4"
+        "symfony/console": "^5.4",
+        "meutiv/owalias": "dev-main"
     }
 }
