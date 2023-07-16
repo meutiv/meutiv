@@ -30,6 +30,12 @@
  * @method static MT_PluginManager getInstance()
  * @since 1.0
  */
+
+if( MT_USE_OWPLUGINS )
+{
+    include_once( MT_DIR_LIB_VENDOR . 'meutiv' . DS . 'owalias' . DS . 'classalias.php');
+}
+
 class MT_PluginManager
 {
     use MT_Singleton;
