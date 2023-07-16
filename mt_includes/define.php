@@ -25,7 +25,6 @@ define('MT_DIR_STATIC_PLUGIN', MT_DIR_STATIC . 'plugins' . DS);
 define('MT_DIR_STATIC_THEME', MT_DIR_STATIC . 'themes' . DS);
 define('MT_DIR_PLUGIN_USERFILES', MT_DIR_USERFILES . 'plugins' . DS);
 define('MT_DIR_THEME_USERFILES', MT_DIR_USERFILES . 'themes' . DS);
-define('MT_DIR_LOG', MT_DIR_ROOT . 'mt_log' . DS);
 
 if ( defined('MT_URL_STATIC') )
 {
@@ -39,7 +38,10 @@ if ( defined('MT_URL_USERFILES') )
     define('MT_URL_THEME_USERFILES', MT_URL_USERFILES . 'themes/');
 }
 
-define("MT_DIR_LIB_VENDOR", MT_DIR_LIB . "vendor" . DS);
+if ( !defined("MT_DIR_LIB_VENDOR") )
+{
+    define("MT_DIR_LIB_VENDOR", MT_DIR_LIB . "vendor" . DS);
+}
 
 if ( !defined("MT_SQL_LIMIT_USERS_COUNT") )
 {

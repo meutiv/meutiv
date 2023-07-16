@@ -20,5 +20,6 @@ define('MT_DIR_PACKAGE', MT_DIR_ROOT . 'mt_packages' . DS);
 define('MT_DIR_PLUGIN', MT_DIR_PACKAGE . 'plugins' . DS);
 define('MT_DIR_THEME', MT_DIR_PACKAGE . 'themes' . DS);
 define('MT_DIR_SYSTEM_PLUGIN', MT_DIR_ROOT . 'mt_system_plugins'.DS);
+define('MT_DIR_LOG', MT_DIR_ROOT . 'mt_log' . DS);
  
 define('MT_USE_CLOUDFILES', false);
