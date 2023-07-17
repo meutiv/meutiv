@@ -460,7 +460,7 @@ final class MT
     {
         if ( !self::isInternalClass($className) )
         {
-            throw new LogicException('Only internal OxWall classes that adherence to the naming convention are allowed for instantiating!');
+            throw new LogicException("Unable to instantiate class `{$className}`.Only internal Meutiv classes that adherence to the naming convention are allowed for instantiating!");
         }
 
         $params = array(

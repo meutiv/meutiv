@@ -36,6 +36,7 @@ abstract class BASE_CLASS_Widget extends MT_Component
     const ACCESS_ALL = 'all';
 
     const SETTING_TITLE = 'title';
+    const SETTING_SHOW_TITLE = false;
     const SETTING_WRAP_IN_BOX = 'wrap_in_box';
     const SETTING_SHMT_TITLE = 'shmt_title';
     const SETTING_ICON = 'icon';
