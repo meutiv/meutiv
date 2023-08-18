@@ -1,0 +1,24 @@
+{style} {literal} body,html {background:#fff;min-width:0; height: 100%;} .mt_page_wrap { background: none; } .mt_footer { background: none; border: none; clear: both; height: 96px; margin-top: -99px; padding: 1px 0; position: relative; } .mt_footer .mt_canvas
+{ margin: 0 auto; width: 996px; word-wrap: break-word; background: none; } .mt_footer .mt_page { margin: 0 0 0 auto; padding: 0 18px; background: none; } .mt_sign_in_cont { position: relative; } body > .mt_page_wrap { min-height: 100%; position: relative;
+} .mt_page_padding { padding-bottom: 99px; background: none; } {/literal} {/style}
+<div class="mt_page_wrap">
+    <div class="mt_page_padding">
+        {$content}
+    </div>
+</div>
+<div class="mt_footer">
+    <div class="mt_canvas">
+        <div class="mt_page clearfix">
+            <div style="float:right;padding-bottom: 30px;">
+                {$bottomPoweredByLink}
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('.mt_sign_up').after($('.mt_sign_in'));
+    $('<div class="clearfix"></div>').appendTo($('.mt_sign_in'));
+    $('.mt_sign_in > .clearfix').append($('.mt_form_options .mt_button'));
+    $('.mt_sign_in > .clearfix').append($('.mt_sign_up p:last-child a'));
+    $('.mt_sign_in > .clearfix').after($('.mt_connect_buttons .clearfix'));
+</script>

@@ -1,0 +1,7 @@
+<ul class="mt_regular">
+    {foreach from=$items item="item"}
+    <li>
+        <a href="{$item.url}">{$item.label}</a> <span class="mt_lbutton mt_green">{$item.count}</span>
+    </li>
+    {/foreach}
+</ul>

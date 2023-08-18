@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ow>
+    <name>Meutiv software framework</name>
+    <build>1</build>
+    <version>0.0.1</version>
+    <copyright>Copyright 2023 Peatech LLC. All rights reserved.</copyright>
+    <license>Common Public Attribution License Version 1.0</license>
+    <licenseUrl>http://meutiv.com/license</licenseUrl>
+</ow>

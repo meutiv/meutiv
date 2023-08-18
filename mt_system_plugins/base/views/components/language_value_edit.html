@@ -1,0 +1,23 @@
+<div class="mt_automargin">
+
+    {block_decorator name="box" type="empty"} {form name="lang-values-edit"}
+    <table class="mt_table_1 mt_form mt_smallmargin">
+        <tr class="mt_center mt_tr_first">
+            <th>Language</th>
+            <th>Translation</th>
+        </tr>
+        {foreach from=$langs item='lang' name='lang'}
+        <tr class="{cycle values=" mt_alt1,mt_alt2 "} {if $smarty.foreach.lang.last}mt_tr_last{/if}">
+            <td class="mt_label">{$lang->getLabel()} ({$lang->getTag()})</td>
+            <td class="mt_value">{input name="lang[`$lang->id`][`$prefix`][`$key`]"}</td>
+        </tr>
+        {/foreach}
+    </table>
+    <div class="clearfix mt_smallmargin">
+        <div class="mt_right">
+            {submit name="submit"}
+        </div>
+    </div>
+    {/form} {/block_decorator}
+
+</div>

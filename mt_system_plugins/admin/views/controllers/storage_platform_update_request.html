@@ -1,0 +1,15 @@
+<div class="mt_wide mt_automargin">
+    {block_decorator name='box' addClass='mt_stdmargin' iconClass='mt_ic_plugin' langLabel='admin+manage_plugins_core_update_request_box_cap_label'}
+    <div class="mt_center">
+        {if !empty($phpVersionInvalidText)}
+        <div class="mt_anno mt_smallmargin mt_nocontent mt_ic_warning">{$phpVersionInvalidText}</div>
+        <div class="mt_txtright"><span class="mt_button mt_critical"><span class=""><input onclick="window.location='{$redirectUrl|escape:javascript}'" type="button" value="{text key='admin+plugin_update_platform_avail_yes_button_label'}"></span></span>{decorator name='button'
+            langLabel='admin+plugin_update_platform_invalid_php_version_back_btn_label' class='mt_ic_right_arrow' onclick="window.location='`$returnUrl`'"}</div>
+        {else} {$text}
+        <div class="clearfix">
+            <div class="mt_right">{decorator name='button' langLabel='admin+plugin_update_yes_button_label' class='mt_positive mt_ic_right_arrow' onclick="window.location='`$redirectUrl`'"}</div>
+        </div>
+        {/if}
+    </div>
+    {/block_decorator}
+</div>

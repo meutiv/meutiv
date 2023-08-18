@@ -1,0 +1,21 @@
+{$menu}
+<div class="mt_seo_socialmeta_txt mt_stdmargin">{text key='base+seo_social_meta_text'}</div>
+{form name='imageForm'}
+<table class="mt_table_1 mt_form">
+    <tbody>
+        <tr class="mt_tr_first">
+            <th class="mt_name mt_txtleft" colspan="3">
+                <span class="mt_section_icon mt_ic_save">{text key='base+seo_upload_logo_label'}</span>
+            </th>
+        </tr>
+        <tr class="mt_alt1 mt_tr_last">
+            <td class="mt_label">{label name='image'}</td>
+            <td class="mt_value"><img src="{$logoUrl}" style="max-width: 250px;" /><br />{input name='image'}</td>
+            <td class="mt_desc mt_small">{desc name='image'}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="clearfix mt_stdmargin">
+    <div class="mt_right">{submit name='submit'}</div>
+</div>
+{/form}

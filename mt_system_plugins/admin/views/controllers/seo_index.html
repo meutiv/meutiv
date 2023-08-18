@@ -1,0 +1,69 @@
+<style>
+    .mt_info_icon {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+    }
+    
+    .mt_info_icon:hover {
+        cursor: pointer;
+    }
+    
+    .mt_letter_count {
+        padding-top: 7px;
+    }
+    
+    .mt_letter_count input {
+        width: 44px;
+        height: 24px;
+    }
+</style>
+{script} addInputCounter = function( $input, $counter, $count ){ $counter.val($input.val().length); if( $counter.val()-$count == 1 ){ $counter.addClass("mt_red"); } if( $count-$counter.val() == 1 ){ $counter.removeClass("mt_red"); } } {/script} {$menu}
+<div class="seo_admin_select mt_stdmargin">
+    <span>{text key='base+seo_meta_choose_pages_label'} </span>{html_options name='meta_sections' options=$sections selected=$currentSection onchange="window.location='$currentUrl'.replace('#sec#', this.value)"}
+</div>
+{form name="meta_form"}
+<table class="mt_table_1 mt_form">
+    <tbody>
+        {foreach from=$entities item="item" key="key"}
+        <tr class="mt_tr_first">
+            <th class="mt_name mt_txtleft" colspan="3">
+                <span class="mt_section_icon {if !empty($item.iconClass)}{$item.iconClass}{else}mt_ic_file{/if}">{$item.label}</span>
+            </th>
+        </tr>
+        <tr class="mt_alt1">
+            <td class="mt_label">{label name="seo_title_`$key`"}</td>
+            <td class="mt_value">{input name="seo_title_`$key`" onkeydown="addInputCounter($(this), $('input.seo_title_{$key}'), {$item.title.max})"}
+                <div class="mt_letter_count mt_txtright mt_small"><input class="seo_title_{$key}" readonly="" type="text" name="" size="3" maxlength="3" value="{$item.title.length}" {if $item.title.isRed} class="mt_red" {/if}></div>
+                {error name="seo_title_`$key`"}
+            </td>
+            <td class="mt_desc mt_small"><span class="mt_info_icon mt_ic_info" title="{desc name=" seo_title_`$key` "}"></span></td>
+        </tr>
+        <tr class="mt_alt2">
+            <td class="mt_label">{label name="seo_description_`$key`"}</td>
+            <td class="mt_value">{input name="seo_description_`$key`" onkeydown="addInputCounter($(this), $('input.seo_desc_{$key}'), {$item.desc.max})"}
+                <div class="mt_letter_count mt_txtright mt_small"><input class="seo_desc_{$key}" readonly="" type="text" name="" size="3" maxlength="3" value="{$item.desc.length}" {if $item.desc.isRed} class="mt_red" {/if}></div>
+                {error name="seo_description_`$key`"}
+            </td>
+            <td class="mt_desc mt_small"><span class="mt_info_icon mt_ic_info" title="{desc name=" seo_description_`$key` "}"></span></td>
+        </tr>
+        <tr class="mt_alt1">
+            <td class="mt_label">{label name="seo_keywords_`$key`"}</td>
+            <td class="mt_value">{input name="seo_keywords_`$key`"}<br />{error name="seo_keywords_`$key`"}</td>
+            <td class="mt_desc mt_small"></td>
+        </tr>
+        <tr class="mt_alt2 mt_tr_last">
+            <td class="mt_label">{label name="seo_index_`$key`"}</td>
+            <td class="mt_value">{input name="seo_index_`$key`"}</td>
+            <td class="mt_desc"></td>
+        </tr>
+        <tr class="mt_tr_delimiter">
+            <td></td>
+        </tr>
+        {/foreach}
+    </tbody>
+</table>
+<div class="clearfix mt_stdmargin">
+    <div class="mt_right">{submit name="save"}</div>
+</div>
+{/form}

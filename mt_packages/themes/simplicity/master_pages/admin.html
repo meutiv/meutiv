@@ -1,0 +1,101 @@
+{style} #console-notifications-wrapper { position: absolute; z-index: 100; display: block; } #console-notifications-wrapper .console_tooltip { opacity: 1; top: 22px !important; display: none; } #console-notifications-wrapper .mt_count_wrap { width: auto;
+} #console-notifications-wrapper .mt_count_wrap .mt_count { right: 0px; } #console-notifications-wrapper .mt_console_list li { margin: 0 0 4px; border: 1px solid #ececec; border-radius: 2px; } .mt_footer .mt_canvas .mt_page { padding: 20px 0; } .mt_footer
+.mt_canvas .mt_page .mt_remark_wrapper{ float:left; } .mt_footer .mt_canvas .mt_page .mt_powered_by{ float:right; line-height:15px; font-size:11px; } {/style}
+
+<div class="mt_admin_page_wrap">
+    <div class="mt_admin_page_padding">
+        <!-- head wrapper -->
+        <div class="mt_header mt_admin_header clearfix">
+            {component class='BASE_CMP_Console'}
+            <div class="mt_site_panel clearfix">
+                <a class="mt_admin_home_btn mt_admin_menu_item home mt_left" href="{$siteUrl}">
+                    <span class="mt_admin_menu_item_label">{$siteName}</span>
+                </a>
+                {add_content key='admin.site_panel_left_content'}
+                <div class="mt_admin_console_update">
+                    <a id="admin_console_update_link" class="mt_admin_console_update_link" href="#"></a>
+                    {if !empty($notifications)}
+                    <span class="mt_count_wrap">
+                            <span class="mt_count_bg">
+                                <span class="mt_count mt_count_active">{count($notifications)}</span>
+                    </span>
+                    </span>
+                    {/if}
+                    <div id="console-notifications-wrapper" class="MT_ConsoleItemContent">
+                        {block_decorator name="tooltip" addClass="console_tooltip mt_tooltip_top_left"}
+                        <div class="mt_console_list_wrapper">
+                            {if !empty($notifications)}
+                            <ul class="mt_console_list">
+                                {foreach from=$notifications item='notification'}
+                                <li class="mt_console_list_item mt_admin_config_item mt_admin_console_type_{$notification.type}">
+                                    <div class="mt_admin_notification_pic"></div>
+                                    <div class="mt_admin_notification_text mt_left mt_small">{$notification.message}</div>
+                                </li>
+                                {/foreach}
+                            </ul>
+                            {else}
+                            <div class="mt_nocontent">{text key="base+no_items"}</div>
+                            {/if}
+                        </div>
+                        {/block_decorator}
+                    </div>
+                </div>
+                {add_content key='admin.site_panel_right_content'}
+            </div>
+        </div>
+        <!-- end of head wrapper -->
+
+        <!-- left menu wrapper -->
+        <div id="main_left_menu" class="mt_admin_menu_wrap sticky">
+            <div class="mt_admin_menu">
+                {foreach from=$menuArr key='key' item='item'}
+                <div class="mt_admin_menu_item {$item.key}{if $item.isActive} active{/if}">
+                    <a href="{$item.firstLink}" class="mt_admin_menu_item_label">{$item.label}</a>
+                    <div class="mt_admin_menu_arrow"></div>
+                    {$item.sub_menu}
+                </div>
+                {if $item.isActive} {$item.active_sub_menu} {/if} {/foreach}
+            </div>
+        </div>
+        <!-- end of left menu wrapper -->
+
+        <!-- content wrapper -->
+        <div class="mt_page_container mt_admin ">
+            <div class="mt_canvas">
+                <div class="mt_page">
+                    {if !empty($heading)}
+                    <h1 class="mt_stdmargin {$heading_icon_class}">
+                        {$heading}
+                    </h1>
+                    {/if}
+                    <div class="mt_content">
+                        {add_content key='admin.add_page_top_content'} {$content} {add_content key='admin.add_page_bottom_content'}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end of content wrapper -->
+    </div>
+</div>
+<!-- footer wrapper -->
+<div class="mt_footer mt_admin">
+    <div class="mt_canvas">
+        <div class="mt_page clearfix">
+            <div class="mt_remark_wrapper">
+                {if empty($mt_plugin_xp)}
+                <div class="mt_right mt_small mt_remark">{$softVersion}</div>
+                {/if}
+            </div>
+            <div class="mt_powered_by">
+                {$bottomPoweredByLink}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end of footer wrapper -->
+
+{decorator name='floatbox'} {script} // process main menu height var $mainLeftMenu = $("#main_left_menu > .mt_admin_menu"); if ( $mainLeftMenu.innerHeight() > $(window).innerHeight() ) { $mainLeftMenu.parent().removeClass("sticky"); } $(document).ready(function(){
+// console var $tooltip = $("#console-notifications-wrapper .mt_tooltip"); var $consoleLink = $("#admin_console_update_link"); $consoleLink.on("click", function(e) { e.preventDefault(); // show the notifications if (!$tooltip.hasClass("active")) { $tooltip.addClass("active").show();
+MT.addScroll("#console-notifications-wrapper .mt_console_list_wrapper"); return; } // hide the notifications $tooltip.removeClass("active").hide(); MT.removeScroll("#console-notifications-wrapper .mt_console_list_wrapper"); }); $(document).mouseup(function(e)
+{ if ($(e.target).parents("#console-notifications-wrapper").length || $consoleLink.is(e.target)) { return; } if ($tooltip.is(":visible")) { $tooltip.removeClass("active").hide(); MT.removeScroll("#console-notifications-wrapper .mt_console_list_wrapper");
+} }); }); {/script}

@@ -1,0 +1,87 @@
+ {style}{literal} .hidden-placeholder { display: none; } .dd_handle { cursor: move; } .component .action { display: none; } .component .action .dd_delete { display: none; } #place_components .clone .action .dd_delete { display: inline-block; } .place_section
+.component .action .dd_delete { display: inline-block; } #place_components .component { float: left; } .place_section { min-height: 60px; padding-top: 3px; } .component { width: 200px; } .place_section .component { width: auto; margin-left: 4px; } .mt_dnd_slider
+{ margin: 10px 0 0; } .mt_dnd_locked_section { opacity: 0.5; filter: alpha(opacity=50) } .mt_dnd_locked_section .mt_dnd_placeholder { display: none; } {/literal}{/style}
+
+<div style="display: none" id="fb_settings">
+    <div class="settings_title">
+        {text key="base+widgets_fb_setting_box_title"}
+    </div>
+    <div class="settings_content component_settings" style="min-height: 300px;"></div>
+    <div class="settings_controls component_controls">
+        {decorator name="button" class="dd_save mt_ic_save" langLabel="admin+save_btn_label"}
+    </div>
+</div>
+
+{block_decorator name='box' type='empty' add_class='mt_stdmargin'}
+
+<p>
+    {text key="base+widgets_admin_section_information"}
+
+</p>
+
+<div class="clearfix mt_stdmargin">
+    <div class="clearfix" style="float:left;width:74%;" id="place_components">
+        {foreach from=$componentList.place item="component"} {dd_component uniqName=$component.uniqName isClone=$component.clone} {/foreach}
+    </div>
+    <div style="float:right;width:24%;border-left:1px solid #ccc;padding-left:10px;" id="clonable_components">
+        {foreach from=$componentList.clonable item="component"} {dd_component uniqName=$component.uniqName isClone=$component.clone} {/foreach}
+    </div>
+</div>
+
+<div class="mt_dragndrop_sections mt_stdmargin mt_superwide mt_automargin" id="place_sections">
+
+    <div class="clearfix">
+
+        <div class="mt_highbox place_section top_section" mt_place_section="top">
+
+            {if isset($componentList.section.top)} {foreach from=$componentList.section.top item="component"} {dd_component uniqName=$component.uniqName render=true} {/foreach} {/if}
+
+        </div>
+
+        <div class="mt_dnd_slider">
+            <div class="mt_dnd_slider_handle mt_ic_move_horizontal"></div>
+            {foreach from=$schemeList item=scheme}
+            <div class="mt_dnd_slider_item clearfix">
+                <div class="mt_dnd_slider_pusher {$scheme->leftCssClass}"></div>
+                <div class="mt_dnd_slider_marker{if $activeScheme.id == $scheme->id} current{/if}" mt_scheme="{$scheme->id}" dd_leftclass="{$scheme->leftCssClass}" dd_rightclass="{$scheme->rightCssClass}">
+                </div>
+            </div>
+            {/foreach}
+        </div>
+
+        <div class="clearfix" style="overflow: hidden;">
+
+            <div class="mt_left mt_highbox place_section mt_column_equal_fix left_section {if isset($activeScheme.leftCssClass)}{$activeScheme.leftCssClass}{/if}" mt_scheme_class="{if isset($activeScheme.leftCssClass)}{$activeScheme.leftCssClass}{/if}" mt_place_section="left">
+
+                {if isset($componentList.section.left)} {foreach from=$componentList.section.left item="component"} {dd_component uniqName=$component.uniqName render=true} {/foreach} {/if}
+
+            </div>
+
+            <div class="mt_right mt_highbox place_section mt_column_equal_fix right_section {if isset($activeScheme.rightCssClass)}{$activeScheme.rightCssClass}{/if}" mt_scheme_class="{if isset($activeScheme.rightCssClass)}{$activeScheme.rightCssClass}{/if}" mt_place_section="right">
+
+                {if isset($componentList.section.right)} {foreach from=$componentList.section.right item="component"} {dd_component uniqName=$component.uniqName render=true} {/foreach} {/if}
+
+            </div>
+
+        </div>
+
+        <div class="mt_highbox place_section bottom_section" mt_place_section="bottom">
+
+            {if isset($componentList.section.bottom)} {foreach from=$componentList.section.bottom item="component"} {dd_component uniqName=$component.uniqName render=true} {/foreach} {/if}
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<p>
+    {text key="base+widgets_admin_legend"}
+</p>
+{/block_decorator} {block_decorator name='box' iconClass='mt_ic_user' langLabel='base+widgets_admin_customization_box_title' addClass='mt_stdmargin' type='empty'}
+
+<p>{text key="base+widgets_allmt_customize_legend"}</p>
+{block_decorator name='box' addClass='mt_automargin mt_wide mt_center'}
+<input id="allmt_customize_btn" type="checkbox" {if $customizeAllowed} checked="checked" {/if}/>
+<label for="allmt_customize_btn">{text key='base+widgets_allmt_customize_label'}</label> {/block_decorator} {/block_decorator}

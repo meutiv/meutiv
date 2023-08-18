@@ -1,0 +1,15 @@
+{
+    "name": "meutiv/owalias",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Peatech LLC"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/meutiv/owalias"
+        }
+    ]
+}

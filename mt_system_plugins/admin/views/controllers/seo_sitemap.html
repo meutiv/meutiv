@@ -1,0 +1,59 @@
+{$menu} {form name="sitemapForm"}
+<table class="mt_table_1 mt_form">
+    <tbody>
+
+        <tr class="mt_tr_first">
+            <th colspan="3" class="mt_name mt_txtleft">
+                <span class="mt_section_icon mt_ic_script">{text key="admin+seo_sitemap_settings"}</span>
+            </th>
+        </tr>
+
+        <tr class="mt_alt{cycle values='1,2'}">
+            <td class="mt_label">
+                {label name=schedule}
+            </td>
+            <td class="mt_value">
+                {input name="schedule"}
+                <p>{error name="schedule"}</p>
+            </td>
+            <td class="mt_desc mt_small">
+                {desc name=schedule}
+            </td>
+        </tr>
+
+        <tr class="mt_tr_delimiter">
+            <td></td>
+        </tr>
+
+        {if $formEntitites}
+        <tr class="mt_tr_first">
+            <th colspan="3" class="mt_name mt_txtleft">
+                <span class="mt_section_icon mt_ic_files">
+                            {text key="admin+seo_sitemap_page_types"}
+                        </span>
+            </th>
+        </tr>
+
+        {foreach from=$formEntitites item=entityName}
+        <tr class="mt_alt{cycle values='1,2'}">
+            <td class="mt_label">
+                {label name=$entityName}
+            </td>
+            <td class="mt_value" colspan="2">
+                {input name=$entityName}
+                <p>{error name=$entityName}</p>
+            </td>
+        </tr>
+        {/foreach} {/if}
+
+    </tbody>
+</table>
+
+{block_decorator name="box" type="empty" addClass="mt_center mt_anno mt_smallmargin"} {text key='admin+seo_sitemap_note_desc' siteMapUrl=$sitemapUrl} {/block_decorator}
+
+<div class="mt_right">
+    {submit name="save" class="mt_ic_save mt_submit mt_right"}
+</div>
+<div class="clearfix"></div>
+
+{/form}

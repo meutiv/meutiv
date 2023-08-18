@@ -1,0 +1,21 @@
+{style} span.tag { background: url("images/tag_bg.png") repeat-x scroll 0 0 #F8F8F8; border: 1px solid #DCDCDC; border-radius: 2px 2px 2px 2px; float: left; line-height: 22px; margin-bottom: 3px; margin-right: 4px; } {/style} {form name='qst_add_form'}
+<table class="mt_table_1 mt_form mt_admin_add_profile_question">
+    {foreach from=$formData key='formEl' item='field' name='f'}
+    <tr class="{cycle values='mt_alt2,mt_alt1'} tr_{$formEl} {if $smarty.foreach.f.first}mt_tr_first{/if} {if $smarty.foreach.f.last}mt_tr_last{/if} {if empty($displayedFormElements[$formEl]) }mt_hidden{/if}">
+        <td class="mt_label">
+            {label name=$formEl}
+        </td>
+        <td class="mt_value">
+            {input name=$formEl}
+            <br/> {error name=$formEl}
+        </td>
+        <td class="mt_desc mt_small">{desc name=$formEl}</td>
+    </tr>
+    {/foreach}
+</table>
+<div class="clearfix mt_stdmargin">
+    <div class="mt_right">
+        {submit name='qst_submit'}
+    </div>
+</div>
+{/form}

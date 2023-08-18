@@ -1,0 +1,7 @@
+<a href="javascript://" class="mt_console_item_link">{$label}</a>
+
+<span {if empty($counter.number)}style="display: none;" {/if} class="mt_count_wrap MT_ConsoleItemCounter">
+    <span class="{if $counter.active}mt_count_active{/if} mt_count_bg MT_ConsoleItemCounterPlace">
+        <span class="mt_count MT_ConsoleItemCounterNumber" {if empty($counter.number)}style="visibility: hidden;"{/if}>{$counter.number}</span>
+</span>
+</span>

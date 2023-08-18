@@ -1,0 +1,40 @@
+<div id="{$cmpContext}" class="{if $mini}mt_comments_mipc{else}mt_comments_ipc{/if}{if $bottomList} mt_comments_form_top{/if}{if empty($formCmp)} mt_comments_no_form{/if}">
+    {capture name='comments'} {if $topList}
+    <div class="comments_list_cont">
+        {$commentList}
+    </div>
+    {/if} {if isset($formCmp)}
+    <div class="mt_comments_form_wrap_pre" style="display:none;"></div>
+    <div class="mt_comments_form_wrap">
+        <div class="mt_comments_input_wrap clearfix">
+            <div class="mt_comments_item_picture">{decorator name='avatar_item' data=$currentUserInfo}</div>
+            <div class="mt_comments_item_info clearfix"><span class="comment_add_arr"></span>
+                <div class="mt_comments_input">
+                    <span class="mt_attachment_icons">
+                        <div class="mt_attachments clearfix">
+                            {if !empty($attch)}<a href="javascript://" class="image" id="{$buttonContId}">{/if}
+                                
+                            </a>
+                        </div>
+                    </span>
+                    <textarea id="{$taId}" class="comments_fake_autoclick" placeholder="{text key='base+comment_form_element_invitation_text' escape=true}"></textarea>
+                </div>
+            </div>
+        </div>
+        {if !empty($attch)}{$attch}{/if}
+        <div id="{$attchId}"></div>
+
+        <div class="clearfix comments_hidden_btn" style="display:none;">
+            <span class="mt_attachment_btn">{decorator name='button' langLabel='base+btn_label_send'}</span>
+        </div>
+
+    </div>
+    {else}
+    <div class="mt_smallmargin mt_center mt_comments_msg">{$authErrorMessage}</div>
+    {/if} {if $bottomList}
+    <div class="comments_list_cont">
+        {$commentList}
+    </div>
+    {/if} {/capture} {if $wrapInBox} {block_decorator name='box' type='empty' addClass='mt_add_comments_form mt_stdmargin' langLabel='base+comment_box_cap_label' iconClass='mt_ic_comment'} {$smarty.capture.comments} {/block_decorator} {else} {$smarty.capture.comments}
+    {/if}
+</div>

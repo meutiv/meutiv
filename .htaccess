@@ -1,0 +1,31 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+AddEncoding gzip .gz
+AddEncoding gzip .gzip
+<FilesMatch "\.(js.gz|js.gzip)$">
+  ForceType text/javascript
+</FilesMatch>
+<FilesMatch "\.(css.gz|css.gzip)$">
+  ForceType text/css
+</FilesMatch>
+<FilesMatch "\.(jpe?g|png)$">
+  Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+# return gzipped files for the mobile app
+RewriteCond %{HTTP:Accept-encoding} gzip
+RewriteCond %{REQUEST_URI} ^/m/(.*.(js|css|map|xml|ttf|otf|json))$
+RewriteRule (.*) mt_static/plugins/skmobileapp/src/%1.gz [END]
+
+RewriteCond %{REQUEST_URI} ^/m/(.*)$
+RewriteRule (.*) mt_static/plugins/skmobileapp/src/%1 [END]
+
+RewriteCond %{REQUEST_URI} !^/index\.php
+RewriteCond %{REQUEST_URI} !/mt_updates/index\.php
+RewriteCond %{REQUEST_URI} !/mt_updates/
+RewriteCond %{REQUEST_URI} !/mt_cron/run\.php
+RewriteCond %{REQUEST_URI} !/e500\.php
+RewriteCond %{REQUEST_URI} !/captcha\.php
+RewriteCond %{REQUEST_FILENAME} (/|\.php|\.htm|\.feed|robots\.txt|sitemap\.xml|\.raw|/[^.]*)$  [NC]
+RewriteRule (.*) index.php

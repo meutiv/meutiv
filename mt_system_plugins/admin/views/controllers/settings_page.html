@@ -1,0 +1,31 @@
+{form name='page_settings'}
+<table class="mt_table_1 mt_form">
+    <tr class="mt_alt2 mt_tr_first">
+        <td class="mt_label">{label name='head_code'}</td>
+        <td class="mt_value">{input name='head_code'} {error name='head_code'}</td>
+        <td class="mt_desc mt_small">
+            {desc name='head_code'}
+        </td>
+    </tr>
+    <tr class="mt_alt1">
+        <td class="mt_label">{label name='bottom_code'}</td>
+        <td class="mt_value">{input name='bottom_code'} {error name='bottom_code'}</td>
+        <td class="mt_desc mt_small">
+            {desc name='bottom_code'}
+        </td>
+    </tr>
+    <tr class="mt_alt2 mt_tr_last">
+        <td class="mt_label"><label>{label name='favicon'} {input name='enable_favicon'}</label></td>
+        <td class="mt_value">
+            <div id="favicon_desabled" {if !empty($faviconEnabled)} style="display:none;" {/if}>{text key='admin+page_settings_no_favicon_label'}</div>
+            <div id="favicon_enabled" {if empty($faviconEnabled)} style="display:none;" {/if}><img src="{$faviconSrc}" /> {input name='favicon'} {error name='favicon'}</div>
+        </td>
+        <td class="mt_desc mt_small">
+            {desc name='favicon'}
+        </td>
+    </tr>
+</table>
+<div class="clearfix mt_stdmargin">
+    <div class="mt_right">{submit name='save' class='mt_ic_save mt_positive'}</div>
+</div>
+{/form}
